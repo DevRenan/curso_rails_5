@@ -9,3 +9,10 @@ RUN apt-get update && apt-get install -y mysql-client postgresql-client sqlite3 
 ENV RAILS_VERSION 5.2.2
 
 RUN gem install rails --version "$RAILS_VERSION"
+
+RUN mkdir /crypto_wallet
+WORKDIR /crypto_wallet
+COPY Gemfile /crypto_wallet/Gemfile
+COPY Gemfile.lock /crypto_wallet/Gemfile.lock
+RUN bundle install
+COPY . /crypto_wallet
