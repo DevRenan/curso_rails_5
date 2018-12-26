@@ -10,6 +10,8 @@ ENV RAILS_VERSION 5.2.2
 
 RUN gem install rails --version "$RAILS_VERSION"
 
+EXPOSE 3000
+
 RUN mkdir /crypto_wallet
 WORKDIR /crypto_wallet
 COPY Gemfile /crypto_wallet/Gemfile
